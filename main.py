@@ -1,16 +1,17 @@
 from fastapi import HTTPException
 from fastapi import Depends
-from fastapi import FastAPI
-
+from fastapi import FastAPI,File, UploadFile, Form
+import ask_gpt
 app = FastAPI()
-@app.get("/informain")
+@app.get("/informain/   ")
 def read_informain(
         name: str,
         age: int,
         height: float,
         weight: float,
-        sex: str,
+        files:list[UploadFile] = File(...),
 ):
+    ask_gpt
     return {"name": name, "age": age, "height": height, "weight": weight}
 
 
