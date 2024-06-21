@@ -1,7 +1,15 @@
-import openai
-import schedule
-from dotenv import load_dotenv
+import getpass
 import os
+from langchain_core.messages import HumanMessage,SystemMessage
+os.environ["OPENAI_API_KEY"] = getpass.getpass()
 
-# 配置您的OpenAI API密钥
-openai.api_key =os.getenv("OPENAI_API_KEY")
+from langchain_openai import ChatOpenAI
+
+model = ChatOpenAI(model="gpt-4")
+messages = [
+    SystemMessage(content="Translate the following from English into Italian"),
+    HumanMessage(content="hi!"),
+]
+
+model.invoke(messages)
+print(messages[1].content)
