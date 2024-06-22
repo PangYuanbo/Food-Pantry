@@ -5,7 +5,7 @@ os.environ["OPENAI_API_KEY"] = getpass.getpass()
 
 from langchain_openai import ChatOpenAI
 
-model = ChatOpenAI(model="gpt-4")
+model = ChatOpngenAI(model="gpt-4")
 messages = [
     SystemMessage(content="Translate the following from English into Italian"),
     HumanMessage(content="hi!"),
